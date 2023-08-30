@@ -1,0 +1,103 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*my own styling*/
+
+body, html{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width:100%;
+    height:100%;
+    background-color: grey;
+}
+
+h1{
+    color: rgb(255, 251, 0);
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.main{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    width: 100%;
+    height: 80%;
+}
+
+.ownGameboard, .opponentGameboard{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 2px;
+    background-color: black;
+    width: 500px;
+    height:500px;
+}
+
+.cell{
+    background-color: white;
+}
+
+.hit{
+    background-color: rgb(231, 89, 89);
+}
+
+.miss{
+    background-color: rgb(95, 226, 95);
+}
+
+.ship{
+    background-color: blue;
+}
+
+
+
