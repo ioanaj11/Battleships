@@ -21,61 +21,33 @@ function generateOwnGameboard(playerGameboard){
 }
 
 //generates the DOM representation of the second player
-function generateOpponentGameboard(playerGameboard, otherPlayer){
+function generateOpponentGameboard(){
    
     opponentGameboard.classList.add('opponentGameboard');
+    opponentGameboard.setAttribute('id', 'opponentGameboard');
     for(let row=0; row<10; row++)
         for(let col=0; col<10; col++){
             const cell=document.createElement('div');
             cell.classList.add('cell');
-            cell.setAttribute('id', `opponent_${row},${col}`);
+            cell.setAttribute('id', `opp_${row},${col}`);
                                           
             opponentGameboard.appendChild(cell);
         }
 
-    //gets the coordinates of the hit upon the second player    
-    function handleClick(e) {
-        let row = parseInt(e.target.id[9]);
-        let col = parseInt(e.target.id[11]);
-        otherPlayer.playerGameboard.receiveAttack(row, col);
-        const cell = document.getElementById(e.target.id);
-        
-        if (otherPlayer.playerGameboard.grid[row][col] === 'hit') {
-            cell.classList.add('hit');
-        } else if (otherPlayer.playerGameboard.grid[row][col] === 'miss') {
-            cell.classList.add('miss');
-        }
-
-        if (!otherPlayer.playerGameboard.isGameOver()){
-            //attacks the other player(the first player)
-            attackOpponent(playerGameboard, otherPlayer)}
-            else console.log('PLAYER 1 is the winner')
-    }
-    
-    opponentGameboard.addEventListener('click', handleClick);
     mainDiv.appendChild(opponentGameboard);
 }
 
-//gets the coordinates that the second player wants to use, to hit the first player; the coordinates are generated randomly
-//changes the hit cell, to be 'hit' or 'miss'
-function attackOpponent(playerGameboard, otherPlayer){
-    let attackCoordinates=otherPlayer.generateHit();
+//changes the class of the hit cell, in order to display the result of the hit
+function displayHit(player, attackedCell){
+    let row = parseInt(attackedCell.id[4]);
+    let col = parseInt(attackedCell.id[6]);
     
-    row=attackCoordinates[0];
-    col=attackCoordinates[1];
-
-    playerGameboard.receiveAttack(row, col);
-    
-    const attackedCell=document.getElementById(`own_${row},${col}`)
-   
-    if (playerGameboard.grid[row][col] === 'hit') {
-        attackedCell.classList.add('hit');
-        attackedCell.classList.remove('ship');
-    } else if (playerGameboard.grid[row][col] === 'miss') {
-        attackedCell.classList.add('miss');
-    }
-
-    if (playerGameboard.isGameOver()) console.log('PLAYER 2 is the winner');
+    if (player.playerGameboard.grid[row][col] === 'hit') {
+            attackedCell.classList.add('hit');
+            attackedCell.classList.remove('ship');
+        } else if (player.playerGameboard.grid[row][col] === 'miss') {
+            attackedCell.classList.add('miss');
+        }
 }
 
 function clearDOM(){
@@ -86,4 +58,5 @@ function clearDOM(){
 module.exports={
     generateOwnGameboard,
     generateOpponentGameboard,
+    displayHit,
     clearDOM}

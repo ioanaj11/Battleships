@@ -35,7 +35,7 @@ function Gameboard(){
     function receiveAttack(row, col){
         if (this.grid[row][col] === null) {
             this.grid[row][col]='miss';
-            return false;
+            return true;
         }
            else if((this.grid[row][col] === 'hit')||(this.grid[row][col]=='miss')) return false;
                else {
