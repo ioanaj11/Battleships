@@ -1,4 +1,4 @@
-function createShip(length){
+export function Ship(length){
     let timesHit=0;
     
     function hit(){
@@ -16,5 +16,3 @@ function createShip(length){
         isSunk
     };
 }
-
-module.exports=createShip;

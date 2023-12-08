@@ -1,5 +1,5 @@
 //a factory function which creates the grid of the game
-function Gameboard(){
+export function Gameboard(){
     const grid=createEmptyGameboard();
 
     //generates the empty board, where the ships will be placed; 
@@ -20,15 +20,14 @@ function Gameboard(){
 
     //the array elements where the ship is placed change from 'null' into 'ship'
     function placeShip(ship, row, col, direction){
-        if (direction == 'vertical')
-            for(let i=0; i<ship.length; i++){
+        if (direction === 'vertical')
+            {for(let i=0; i<ship.length; i++){
                 this.grid[row+i][col]=ship;
-            }
-            else {
-                for(let i=0; i<ship.length;i++){
-                    this.grid[row][col+i]=ship;
+                }}
+        else {for(let i=0; i<ship.length;i++){
+              this.grid[row][col+i]=ship;
+              }
                 }
-            }
     }
 
     //depending on the grid-value of the [row][col] coordinate, the value in the grid changes to 'hit' or 'miss'
@@ -65,5 +64,3 @@ function Gameboard(){
         isGameOver
     }
 }
-
-module.exports=Gameboard;

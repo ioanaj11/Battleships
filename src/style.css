@@ -49,28 +49,136 @@ table {
 
 /*my own styling*/
 
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Pacifico&display=swap');
+
+
 body, html{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     width:100%;
     height:100%;
-    background-color: grey;
+    background-image: url('./img/painted-grey-background-with-metal-texture.jpg');
+    background-size: cover;
 }
 
 h1{
-    color: rgb(255, 251, 0);
-    font-size: 40px;
-    font-weight: 600;
+    color: black;
+    font-size: 70px;
+    font-weight: 500;
     text-align: center;
+    font-family: 'Black Ops One', cursive;
 }
 
 .main{
     display:flex;
-    justify-content: space-around;
+    justify-content:flex-start;
     align-items:center;
     width: 100%;
     height: 80%;
+}
+
+.messageBoard{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+    height:40px;
+    width: 400px;
+    background-color: whitesmoke;
+    border: 2px;
+    border-color: black;
+    border-radius: 5px;
+    border-style: groove;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.fleetDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 300px;
+    height: 520px;
+}
+
+.rotateImg{
+    width: 20px !important;
+    height:auto !important;
+    padding-right: 20px;
+}
+
+.battleship img{
+    width: 180px;
+    height:43px;
+    margin-bottom: 37px;
+    transform: rotate(0deg);
+}
+
+.carrier img{
+    width: 240px;
+    height:43px;
+    margin-bottom: 37px;
+    transform: rotate(0deg);
+}
+
+.destroyer img{
+    width: 130px;
+    height:43px;
+    margin-bottom: 37px;
+    transform: rotate(0deg);
+}
+
+.submarine img{
+    width: 130px;
+    height:43px;
+    margin-bottom: 37px;
+    transform: rotate(0deg);
+}
+
+.patrolBoat img{
+    width: 80px;
+    height:43px;
+    margin-bottom: 37px;
+    transform: rotate(0deg);
+}
+
+.buttonsDiv{
+    display: flex;
+    margin-top: 40px;
+}
+
+.startBtn, .resetBtn{
+    padding: 5px 15px;
+    border-style: groove 3px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 10px;
+    font-family: 'Black Ops One', cursive;
+}
+
+.ownArea, .opponentArea{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 60px;
+}
+
+.opponentArea{
+    margin-left: 250px;
+}
+
+h2{
+    color: black;
+    font-size: 25px;
+    font-weight: 100;
+    font-family: 'Black Ops One', cursive;
+    padding:20px;
 }
 
 .ownGameboard, .opponentGameboard{
@@ -78,25 +186,37 @@ h1{
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
     gap: 2px;
-    background-color: black;
+    background-color: rgba(36, 137, 204, 0.3);
     width: 500px;
     height:500px;
 }
 
 .cell{
-    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: transparent;
+    border: 2px black;
+    border-style: double;
+    border-radius: 5px;
+    width:43px;
+    height:43px}
+
+.cell img{
+    margin: 0px;
+    margin-bottom: 0px;
 }
 
 .hit{
-    background-color: rgb(231, 89, 89);
+    background-color: rgb(226, 15, 15);
 }
 
 .miss{
-    background-color: rgb(95, 226, 95);
+    background-color: rgb(30, 42, 97);
 }
 
 .ship{
-    background-color: blue;
+    background-color: rgb(17, 14, 14);
 }
 
 

@@ -1,9 +1,7 @@
-const Gameboard=require('./gameboard');
+import {Gameboard} from './gameboard';
 
-function Player(name){
+export function Player(name){
     let playerGameboard=Gameboard();
     
     return {name, playerGameboard}
 }
-
-module.exports=Player;
